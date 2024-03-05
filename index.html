@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page with Nested Frames</title>
-    <!-- Frame meta tags for the main page -->
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/White_flag_of_surrender.svg/510px-White_flag_of_surrender.svg.png">
+    <!-- Frame meta tags -->
+    <meta property="fc:frame" content="vNext">
+    <meta property="fc:frame:image" content="your_main_page_image_url">
     <meta property="fc:frame:image:aspect_ratio" content="1.91:1">
+    <script>
+        // Function to switch the iframe source
+        function switchFrame() {
+            var iframe = document.getElementById('mainFrame');
+            var currentSrc = iframe.getAttribute('src');
+            var newSrc = currentSrc === 'frame1.html' ? 'frame3.html' : 'frame1.html';
+            iframe.setAttribute('src', newSrc);
+        }
+    </script>
 </head>
 <body>
-    <iframe src="frame1.html" width="600" height="400" frameborder="0"></iframe>
+    <iframe id="mainFrame" src="frame1.html" width="600" height="400" frameborder="0"></iframe>
+    <button onclick="switchFrame()">Switch Frame</button>
 </body>
 </html>
